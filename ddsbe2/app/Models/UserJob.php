@@ -3,7 +3,7 @@
 namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Model
+class UserJob extends Model
     {
         public $timestamps = false;
         
@@ -11,7 +11,7 @@ class User extends Model
         protected $table = 'tbluserjob';
 
         // column of the table
-        protected $fillable = [ 'jobname',];
+        protected $fillable = ['jobid','jobname',];
 
         //userid set to primary key
         protected $primaryKey = 'jobid';

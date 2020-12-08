@@ -1,11 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\UserJob; 
-use Illuminate\Http\Request;
+
 use App\Models\User;
+use App\Models\UserJob;
+use Illuminate\Http\Response;
 use App\Traits\ApiResponser;
-use App\Http\Controllers\Response;
+use Illuminate\Http\Request;
+use DB;
 
 Class UserController extends Controller {
     use ApiResponser;
@@ -29,17 +31,16 @@ Class UserController extends Controller {
     }
 
     //create new users
-    public function addUser(Request $request)
-    {
+    public function addUser(Request $request){
         $rules = [
-            'username' => 'required|max:50',
-            'password' => 'required|max:50',
+            'username' => 'required|max:20',
+            'password' => 'required|max:20',
             'jobid' => 'required|numeric|min:1|not_in:0',
         ];
 
+        $this->validate($request,$rules);
         // validate if Jobid is found in the table tbluserjob
-        $this->validate($request, $rules);
-        $userjob =UserJob::findOrFail($request->jobid);
+        $userjob = UserJob::findOrFail($request->jobid);
         $user = User::create($request->all());
         return $this->successResponse($user,Response::HTTP_CREATED);
     }

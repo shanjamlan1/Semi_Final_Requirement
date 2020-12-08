@@ -3,8 +3,8 @@
 namespace App\Exceptions;
 
 use App\Traits\ApiResponser;
-use lluminate\Http\Request;
-use lluminate\Http\Response;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;

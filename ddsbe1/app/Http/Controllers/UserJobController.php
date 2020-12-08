@@ -1,7 +1,7 @@
 <?php
     namespace App\Http\Controllers;
     //use App\User;
-    use App\Model\UserJob; // <-- your model is located inside Models Folder
+    use App\Models\UserJob; // <-- your model is located inside Models Folder
     use Illuminate\Http\Response; // Response Components
     use App\Traits\ApiResponser; // <-- use to standardized our code for api response
     use Illuminate\Http\Request; // <-- handling http request in lumen
